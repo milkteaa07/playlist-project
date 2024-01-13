@@ -19,7 +19,7 @@ public class song {
 
 
 
-    //methods
+    //methods idk if i need to do this here or somewhere else lol
 
     public void addSong(){
         
@@ -42,6 +42,6 @@ public class song {
     }
 
     public void removeUnliked(){
-        
+
     }
 }

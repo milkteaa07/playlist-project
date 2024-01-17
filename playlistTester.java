@@ -6,7 +6,7 @@
  * @author
  * @version
  */
-public class playlistTester {
+public class PlaylistTester {
     public static void main(String[] args) {
         System.out.println("Initializing a Playlist...\n");
         //Make your playlist here

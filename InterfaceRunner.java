@@ -3,12 +3,14 @@ import java.util.*;
 /**
  * TO DO LIST:
  * - make option to only go back one page
- * - editSong()
+ * - test all functions
+ * - make sure program doesn't quit when invalid data in entered
+ * - add booleans to editors: if empty exit editor
  */
 public class InterfaceRunner {
     public static void main(String[] args){
         
-        System.out.println("\nHello! Welcome to Playlist Maker!");
+        System.out.println("Hello! Welcome to Playlist Maker!");
         System.out.println("What would you like to do today?");
 
         ArrayList<Playlist> all = new ArrayList<>();
@@ -22,7 +24,8 @@ public class InterfaceRunner {
         boolean flag = false;
 
         while (!flag){
-            System.out.println("\n    A: Make a new playlist");
+            System.out.println("\nHOME PAGE");
+            System.out.println("    A: Make a new playlist");
             System.out.println("    B: Edit an existing playlist");
             System.out.println("    C: List existing playlists");
             System.out.println("    D: Exit");
@@ -36,20 +39,21 @@ public class InterfaceRunner {
                 all.add(p);
                 System.out.println();
             }else if (choice.toLowerCase().equals("b")){
+                if (all.size() == 0){
+                    System.out.println("No existiing playlists");
+                }else{
                 list(all);
                 System.out.println("Enter the number of the playlist you would like to edit: ");
                 int i = input.nextInt();
                 System.out.println("Editing "+all.get(i-1).getPlaylistName()+"...");
                 edit(all.get(i-1));
+                }
             }else if (choice.toLowerCase().equals("c")){
                 list(all);
-
             }else if (choice.toLowerCase().equals("d")){
                 stop();
-                flag = true;
             }else{
                 System.out.println("Please enter a valid option: ");
-                choice = input.next();
             }
 
             
@@ -69,6 +73,7 @@ public class InterfaceRunner {
         
         boolean done = false;
         while (!done){
+            System.out.println("\nPLAYLIST EDITOR");
             System.out.println("Please select an option: ");
             System.out.println("    A: Add song                     B: Remove song");
             System.out.println("    C: Like/Unlike song             D: List all songs");
@@ -88,25 +93,44 @@ public class InterfaceRunner {
             p.add(s);
             System.out.println("\""+s.getTitle()+"\" added!");
         }else if(i.toLowerCase().equals("b")){
-            System.out.println(p.getPlaylist().toString());
-            System.out.println("\nEnter number of song you would like to like: ");
+            System.out.println(p.toString(p.getPlaylist()));
+            System.out.println("Enter number of song you would like to remove: ");
             int n = input.nextInt();
             n-=1;
-            System.out.println("\""+p.getSong(n)+"\" liked");
-            p.like(n);
+            System.out.println("\""+p.getSong(n).getTitle()+"\" removed");
+            p.remove(n);
         }else if(i.toLowerCase().equals("c")){
-            System.out.println(p.getPlaylist().toString());
-            System.out.println("\nEnter number of song you would like to unlike: ");
+            System.out.println(p.toString(p.getPlaylist()));
+            System.out.println("Enter number of song you would like to edit: ");
+            int b = input.nextInt();
+            b-=1;
+            System.out.println(b);
+            System.out.println("Editing "+p.getSong(b).getTitle()+"...");
+            System.out.println("Choose an option [1: like, 2: unlike]: ");
             int n = input.nextInt();
-            n-=1;
-            System.out.println("\""+p.getSong(n)+"\" unliked");
-            p.unlike(n);
+            if (n == 1){
+                System.out.println(b);
+                p.like(b);
+                System.out.println("\""+p.getSong(n).getTitle()+"\" liked");
+            }else if (n == 2){
+                p.unlike(b);
+                System.out.println("\""+p.getSong(n).getTitle()+"\" unliked");
+            }
         }else if(i.toLowerCase().equals("d")){
-            System.out.println(p.getPlaylist().toString());
+            if (p.getPlaylist().size()==0){
+                System.out.println("No songs");
+            }else{
+                System.out.println(p.toString(p.getPlaylist()));
+            }
+            
         }else if(i.toLowerCase().equals("e")){
-            System.out.println(p.getLiked().toString());
+            if (p.getLiked().size()==0){
+                System.out.println("No liked songs");
+            }else{
+                System.out.println(p.toString(p.getLiked()));
+            }
         }else if(i.toLowerCase().equals("f")){
-            System.out.println(p.getTotalTime());
+            System.out.println("TOTAL DURATION: "+p.getTotalTime());
         }else if(i.toLowerCase().equals("g")){
             p.removeUnliked();
             System.out.println("All unliked songs removed.");
@@ -118,10 +142,8 @@ public class InterfaceRunner {
             done = true;
         }else if(i.toLowerCase().equals("j")){
             stop();
-            done = true;
         }else{
             System.out.println("Please enter valid option: ");
-            i=input.next();
         }
     }
         input.close();
@@ -131,6 +153,7 @@ public class InterfaceRunner {
         boolean done = false;
         Scanner input = new Scanner(System.in);
         while (!done){
+            System.out.println("\nSONG EDITOR");
             System.out.println("Please select an option: ");
             System.out.println("    A: Change name                  B: Change artist");
             System.out.println("    C: Change duration              D: Change status");
@@ -162,13 +185,11 @@ public class InterfaceRunner {
             }else if (c.toLowerCase().equals("e")){
                 done = true;
             }else if (c.toLowerCase().equals("f")){
-                // COME BACK
+                
             }else if (c.toLowerCase().equals("g")){
                 stop();
-                done = true;
             }else{
                 System.out.println("Please enter valid option: ");
-                c=input.next();
             }
 
        }
@@ -176,5 +197,6 @@ public class InterfaceRunner {
     }
     public static void stop(){
         System.out.println("Thanks for visiting! Come back soon :)");
+        System.exit(0);
     }
 }

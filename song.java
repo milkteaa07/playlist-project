@@ -74,6 +74,6 @@ public class Song {
     }
 
     public String toString(){
-        return "Title: " +this.title + "\nArtist: "+this.artist+"\nDuration: "+this.time+"\nStatus: "+this.status;
+        return "\""+this.title+"\""+ " by "+this.artist+" ("+this.time+")";
     }
 }

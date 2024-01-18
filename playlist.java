@@ -114,7 +114,7 @@ public class Playlist{
         // like by index
         playlist.get(i).setStatus("no like");
     }
-    public void like(String n){
+    public void like(String n){//like by song title
         for (Song s:playlist){
             if (s.getTitle().equals(n)){
                 s.setStatus("liked");
@@ -168,7 +168,6 @@ public class Playlist{
 
     public String toString(ArrayList<Song> list){
         String output ="";
-        output += name+"\n";
         for (int i=0;i<list.size();i++){
             Song curr = list.get(i);
             output += "    "+ (i+1) +". \""+ curr.getTitle()+"\" by "+curr.getArtist() + " ("+curr.getTime()+")"+"\n";

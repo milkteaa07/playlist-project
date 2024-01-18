@@ -1,4 +1,5 @@
 /**
+ * PLAYLIST TESTER
  * Sample of a tester file for the Playlist class. This file demonstrates all the capability of 
  * Playlist in the main method. 
  * 

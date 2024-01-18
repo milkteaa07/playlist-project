@@ -22,6 +22,7 @@
  * @method set Artist(String n) - changes artist to n
  * @method setTime(String n) - changes time to n 
  * @method setStatus(boolean n ) - changes status to n
+ * @method toString() - returns String of Song information
  * 
  */
 public class Song {

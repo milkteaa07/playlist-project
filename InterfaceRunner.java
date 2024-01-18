@@ -1,6 +1,10 @@
 import java.util.*;
 
 /**
+ * INTERFACE RUNNER
+ * Creates an interactive user interface to interact with Playlist
+ * 
+ * IN PROGRESS IN PROGRESS IN PROGRESS
  * TO DO LIST:
  * - make option to only go back one page
  * - test all functions

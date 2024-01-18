@@ -6,6 +6,7 @@ import java.util.*;
  * - test all functions
  * - make sure program doesn't quit when invalid data in entered
  * - add booleans to editors: if empty exit editor
+ * - clean up files (delete excess notes & methods)
  */
 public class InterfaceRunner {
     public static void main(String[] args){
@@ -178,9 +179,9 @@ public class InterfaceRunner {
                 System.out.println("Please enter new status [1: no like, 2: liked]: ");
                 int n = input.nextInt();
                 if (n == 1){
-                    s.setStatus("no like");
+                    s.setStatus(false);
                 }else if (n == 2){
-                    s.setStatus("liked");
+                    s.setStatus(true);
                 }
             }else if (c.toLowerCase().equals("e")){
                 done = true;

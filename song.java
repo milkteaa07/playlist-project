@@ -1,41 +1,48 @@
+/**
+ * SONG OBJECT
+ * Creates an object storing song information
+ * 
+ * @field String title
+ * @field String artist
+ * @field String time - "--:--" format
+ * @field boolean status - true: like, false: no like
+ * 
+ * constructors
+ * @method Song(String title, String artist, String time, boolean status)
+ * @method Song(String title, String artist, String time) - status defaults to "no like"
+ * 
+ * getters
+ * @method getTitle() - returns String title
+ * @method getArtist() - returns String artist
+ * @method getTime() - returns String time
+ * @method getStatus() - return String status
+ * 
+ * mutators
+ * @method setTitle(String n) - changes title to n
+ * @method set Artist(String n) - changes artist to n
+ * @method setTime(String n) - changes time to n 
+ * @method setStatus(boolean n ) - changes status to n
+ * 
+ */
 public class Song {
-    public static void main(String[] args){
-        Song s = new Song("Jesse's Girl", "Rick Springfield", "3:40");
-        System.out.println(s.toString());
-    }
-    //Fields-- what information do we want each Song to store?
+    //fields
     private String title;
     private String artist;
     private String time;
-    private String status;
+    private boolean status;
 
-
-    /**
-     * Constructor-- what information needs to be given to make a Song?
-     * How will you handle 'liked' songs? It makes sense for a Song not be 'liked' by default
-     */
-    public Song(String a, String b, String c, String d){
+    public Song(String a, String b, String c, boolean d){
         title = a;
         artist = b;
         time = c;
         status = d;
     }
-
     public Song(String a, String b, String c){
         title = a;
         artist = b;
         time = c;
-        status = "no like";
+        status = false;
     }
-
-
-     /**
-      * Methods-- what will you want each Song to do?
-      * Consider all the getter methods (getName, getArtist, etc.)
-      * You should probably have a toString method to be able to get the information for the full
-      * song easily as well!
-      * What kind of mutator (setter) methods will you need?
-      */
 
     // getter methods
     public String getTitle(){
@@ -47,22 +54,12 @@ public class Song {
     public String getTime(){
         return time;
     }
-    public String getStatus(){
+    public boolean getStatus(){
         return status;
     }
     
     // mutator methods
-    public void setStatus(){
-        // changes status to whatever it is not currently
-        if (this.getStatus()=="no like"){
-            this.status = "liked";
-        }else{
-            this.status = "no like";
-        }
-    }
-    public void setStatus(String s){
-        this.status = s;
-    }
+    
     public void setTitle(String t){
         this.title = t;
     }
@@ -71,6 +68,9 @@ public class Song {
     }
     public void setDuration(String d){
         this.time = d;
+    }
+    public void setStatus(boolean s){
+        this.status = s;
     }
 
     public String toString(){

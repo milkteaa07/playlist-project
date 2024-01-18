@@ -1,10 +1,10 @@
 /**
- * Sample of a tester file for the Playlist class. This file should demonstrate all the capability of your
- * playlist in the main method. You don't need to follow the testing specifications of this exactly
- * if you want to write your own separate tester instead.
- * Note that there's no need for a Scanner in this project-- all of the playlist can be 'hardcoded' into main.
- * @author
- * @version
+ * Sample of a tester file for the Playlist class. This file demonstrates all the capability of 
+ * Playlist in the main method. 
+ * 
+ * Note: This tester is hardcoded. For interactive runner, see InterfaceRunner.java
+
+ * @version 01-18-24
  */
 public class PlaylistTester {
     public static void main(String[] args) {
@@ -34,18 +34,19 @@ public class PlaylistTester {
 
         System.out.println("\nLiking songs 1, 2, 3, & 7 etc....\n");
         //Once your songs are 'liked', this should be reflected in the next printout
-        p.like(1);
-        p.like(3);
-        p.like(2);
-        p.like(7);
+        p.like(1-1);
+        p.like(3-1);
+        p.like(2-1);
+        p.like(7-1);
 
 
         System.out.println("Printing the songs...\n");
-        p.getLiked();
+        System.out.println(p.getLiked());
 
         System.out.println("\nRemoving songs 1, 5, & 8...\n");
-        Integer[] n = {8, 5, 1};
-        p.remove(n);
+        p.remove(8-1);
+        p.remove(5-1);
+        p.remove(1-1);
  
         System.out.println("Printing the songs...\n");
         System.out.println(p.toString(p.getPlaylist()));

@@ -35,6 +35,10 @@ public class Playlist{
        */
     
     // GETTER METHODS
+    public Song getSong(int i){
+        return playlist.get(i);
+    }
+
     public ArrayList<Song> getLiked(){
         ArrayList<Song> list = new ArrayList<>();
         for (Song s:playlist){
@@ -79,7 +83,7 @@ public class Playlist{
         }
         return h + ":" + m + ":" + s;
     }
-    private String getPlaylistName(){
+    public String getPlaylistName(){
         return name;
     }
     public ArrayList<Song> getPlaylist(){
@@ -104,9 +108,11 @@ public class Playlist{
     }
     public void like(int i){
         // like by index
-        if (playlist.get(i).getStatus() != "liked"){
-            playlist.get(i).setStatus();
-        }
+        playlist.get(i).setStatus("liked");
+    }
+    public void unlike(int i){
+        // like by index
+        playlist.get(i).setStatus("no like");
     }
     public void like(String n){
         for (Song s:playlist){
@@ -115,6 +121,7 @@ public class Playlist{
             }
         }
     }
+
 
     // remove song
     public void remove(Song s){
@@ -155,12 +162,16 @@ public class Playlist{
         
         }
     }
+    public void rename(String n){
+        name = n;
+    }
 
     public String toString(ArrayList<Song> list){
         String output ="";
+        output += name+"\n";
         for (int i=0;i<list.size();i++){
             Song curr = list.get(i);
-            output += "    "+ (i+1) +". "+ curr.getTitle()+", "+curr.getArtist() +"\n";
+            output += "    "+ (i+1) +". \""+ curr.getTitle()+"\" by "+curr.getArtist() + " ("+curr.getTime()+")"+"\n";
         }
         return output;
     }

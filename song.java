@@ -1,4 +1,8 @@
 public class Song {
+    public static void main(String[] args){
+        Song s = new Song("Jesse's Girl", "Rick Springfield", "3:40");
+        System.out.println(s.toString());
+    }
     //Fields-- what information do we want each Song to store?
     private String title;
     private String artist;
@@ -59,8 +63,17 @@ public class Song {
     public void setStatus(String s){
         this.status = s;
     }
+    public void setTitle(String t){
+        this.title = t;
+    }
+    public void setArtist(String a){
+        this.artist = a;
+    }
+    public void setDuration(String d){
+        this.time = d;
+    }
 
     public String toString(){
-        return "Song: " + this.toString();
+        return "Title: " +this.title + "\nArtist: "+this.artist+"\nDuration: "+this.time+"\nStatus: "+this.status;
     }
 }

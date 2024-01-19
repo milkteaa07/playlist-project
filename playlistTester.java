@@ -7,6 +7,7 @@
 
  * @version 01-18-24
  */
+
 public class PlaylistTester {
     public static void main(String[] args) {
         System.out.println("Initializing a Playlist...\n");

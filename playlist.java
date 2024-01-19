@@ -128,7 +128,11 @@ public class Playlist{
         String output ="";
         for (int i=0;i<list.size();i++){
             Song curr = list.get(i);
-            output += "    "+ (i+1) +". \""+ curr.getTitle()+"\" by "+curr.getArtist() + " ("+curr.getTime()+")"+"\n";
+            output += "    "+ (i+1) +". \""+ curr.getTitle()+"\" by "+curr.getArtist() + " ("+curr.getTime()+")";
+            if (list.get(i).getStatus()){
+                output+= " -- liked";
+            }
+            output+="\n";
         }
         return output;
     }

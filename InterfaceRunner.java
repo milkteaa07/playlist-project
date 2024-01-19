@@ -11,6 +11,7 @@ import java.util.*;
  * - make sure program doesn't quit when invalid data in entered
  * - add booleans to editors: if empty exit editor
  * - clean up files (delete excess notes & methods)
+ * - look at affect of ArrayList.remove() returning removed value
  */
 public class InterfaceRunner {
     public static void main(String[] args){

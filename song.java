@@ -25,7 +25,7 @@
  * @method toString() - returns String of Song information
  * 
  */
-public class Song {
+public class Song{
     //fields
     private String title;
     private String artist;

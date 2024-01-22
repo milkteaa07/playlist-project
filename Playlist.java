@@ -28,11 +28,8 @@ import java.util.*;
 public class Playlist{
 
     ArrayList<Song> playlist = new ArrayList<>();
-    
-    //fields
     private String name;
-    
-    // constructors
+
     public Playlist(String name){
         this.name = name;
     }

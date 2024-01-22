@@ -32,7 +32,6 @@ public class Song{
     private String time;
     private boolean status;
 
-    //constructors
     public Song(String a, String b, String c, boolean d){
         title = a;
         artist = b;
@@ -61,6 +60,7 @@ public class Song{
     }
     
     // mutator methods
+    
     public void setTitle(String t){
         this.title = t;
     }

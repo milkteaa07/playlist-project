@@ -74,6 +74,7 @@ public class Song{
         this.status = s;
     }
 
+    // String function
     public String toString(){
         return "\""+this.title+"\""+ " by "+this.artist+" ("+this.time+")";
     }

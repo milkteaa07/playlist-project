@@ -44,9 +44,11 @@ public class Playlist{
     public Song getSong(int i){
         return playlist.get(i);
     }
+    // get playlist
     public ArrayList<Song> getPlaylist(){
         return playlist;
     }
+    // sublist of all the liked songs
     public ArrayList<Song> getLiked(){
         ArrayList<Song> list = new ArrayList<>();
         for (Song s:playlist){
@@ -56,6 +58,7 @@ public class Playlist{
         }
         return list;
     }
+    // getting total duration
     public String getTotalTime(){
         // 2:40
         int sec = 0;
@@ -101,6 +104,7 @@ public class Playlist{
         // like by index
         playlist.get(i).setStatus(true);
     }
+    // unlike song
     public void unlike(int i){
         // like by index
         playlist.get(i).setStatus(false);
@@ -112,7 +116,7 @@ public class Playlist{
         playlist.remove(i);
     }
 
-    // remove all unliked songs
+    // remove all unliked songs from playlit
     public void removeUnliked(){
         for (int i=0; i<playlist.size(); i++){
             Song s = playlist.get(i);
